@@ -34,7 +34,7 @@ module EC2Region
         next if line.empty?
 
         if /^[0-9.]+{4}\/[0-9]+/ =~ line
-          h[region] << line
+          h[region] << $&
         else
           region = line.sub(/:$/, '').strip
           h[region] = []

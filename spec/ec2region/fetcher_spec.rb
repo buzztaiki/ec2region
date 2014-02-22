@@ -1,6 +1,7 @@
 require 'spec_helper'
 require 'nokogiri'
 require 'ec2region/fetcher'
+require 'ipaddr'
 
 describe EC2Region::Fetcher do
   it 'should open regions.html' do
@@ -32,6 +33,11 @@ describe EC2Region::Fetcher do
           'GovCloud',
         ]
       }
+
+      it "should contain ip address" do
+        ips = fetcher.regions.values.flatten
+        expect { ips.map { |ip| IPAddr.new(ip) } }.to_not raise_error
+      end
     end
   end
 end

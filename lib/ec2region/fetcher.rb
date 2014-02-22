@@ -27,7 +27,20 @@ module EC2Region
 
     def regions
       body = @doc.css('div.jive-body').first
-      Fetcher.replace_br(body, "\n").content.split("\n")
+      h = {}
+      region = nil
+      Fetcher.replace_br(body, "\n").content.split("\n").each do |line|
+        line.strip!
+        next if line.empty?
+
+        if /^[0-9.]+{4}\/[0-9]+/ =~ line
+          h[region] << line
+        else
+          region = line.sub(/:$/, '').strip
+          h[region] = []
+        end
+      end
+      h.select {|k, v| !v.empty?}
     end
   end
 end

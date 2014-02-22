@@ -1,6 +1,5 @@
 require 'nokogiri'
 require 'open-uri'
-require 'ec2region/regions'
 
 module EC2Region
   class Fetcher

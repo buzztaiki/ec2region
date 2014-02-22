@@ -1,5 +1,3 @@
-require 'ec2region/fetcher'
-
 module EC2Region
   class CLI
     def run(args)

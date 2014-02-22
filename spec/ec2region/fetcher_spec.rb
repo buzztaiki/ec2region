@@ -14,19 +14,24 @@ describe EC2Region::Fetcher do
     end
   end
 
-  it 'should list regions' do
-    fetcher = EC2Region::Fetcher.new(open('spec/regions.html'))
-    fetcher.regions.size.should > 0
-    fetcher.regions.keys.should eq [
-      'US East (Northern Virginia)',
-      'US West (Oregon)',
-      'US West (Northern California)',
-      'EU (Ireland)',
-      'Asia Pacific (Singapore)',
-      'Asia Pacific (Sydney)',
-      'Asia Pacific (Tokyo)',
-      'South America (Sao Paulo)',
-      'GovCloud',
-    ]
+  describe "#regions" do
+    context "with spec/regions.html" do
+      let(:fetcher) { EC2Region::Fetcher.new(open('spec/regions.html')) }
+      subject(:regions) { fetcher.regions }
+      its(:size) { should > 0 }
+      its(:keys) {
+        should == [
+          'US East (Northern Virginia)',
+          'US West (Oregon)',
+          'US West (Northern California)',
+          'EU (Ireland)',
+          'Asia Pacific (Singapore)',
+          'Asia Pacific (Sydney)',
+          'Asia Pacific (Tokyo)',
+          'South America (Sao Paulo)',
+          'GovCloud',
+        ]
+      }
+    end
   end
 end

@@ -19,12 +19,13 @@ describe EC2Region::Fetcher do
     context "with spec/regions.html" do
       let(:fetcher) { EC2Region::Fetcher.new(open('spec/regions.html')) }
       subject(:regions) { fetcher.regions }
-      its(:size) { should > 0 }
-      its(:keys) { should be_include('Asia Pacific (Tokyo)') }
+      its(:names) { should include('US East (Northern Virginia)', 'Asia Pacific (Tokyo)') }
 
       it "should contain ip address" do
-        ips = subject.values.flatten
-        expect { ips.map { |ip| IPAddr.new(ip) } }.to_not raise_error
+        subject.names.each do |name|
+          ips = subject.region_ips(name)
+          expect { ips.map { |ip| IPAddr.new(ip) } }.to_not raise_error
+        end
       end
     end
   end

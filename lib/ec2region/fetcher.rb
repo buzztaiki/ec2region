@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'ec2region/regions'
 
 module EC2Region
   class Fetcher
@@ -40,7 +41,7 @@ module EC2Region
           h[region] = []
         end
       end
-      h.select {|k, v| !v.empty?}
+      Regions.new(h.select {|k, v| !v.empty?})
     end
   end
 end

@@ -1,0 +1,451 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+
+  <!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7 lang-en" lang="en"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8 lang-en" lang="en"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9 lang-en" lang="en"> <![endif]-->
+  <!--[if IE 9]>         <html class="no-js lt-ie10 lang-en" lang="en"> <![endif]-->
+  <!--[if gt IE 9]><!--> <html class="no-js lang-en" lang="en"> <!--<![endif]-->
+
+
+<head>
+  <title>
+    AWS Developer Forums: Amazon EC2 Public IP Ranges
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="/css/forums-us-east-1.css"/>
+
+  <link rel="icon" type="image/ico" href="https://d36cz9buwru1tt.cloudfront.net/favicon.ico">                  
+  <link rel="shortcut icon" type="image/ico" href="https://d36cz9buwru1tt.cloudfront.net/favicon.ico">         
+  <link rel="apple-touch-icon" sizes="57x57" href="https://d36cz9buwru1tt.cloudfront.net/touch-icon-iphone-114-precomposed.png">       
+  <link rel="apple-touch-icon" sizes="72x72" href="https://d36cz9buwru1tt.cloudfront.net/touch-icon-ipad-144-precomposed.png">         
+  <link rel="apple-touch-icon" sizes="114x114" href="https://d36cz9buwru1tt.cloudfront.net/touch-icon-iphone-114-precomposed.png">     
+  <link rel="apple-touch-icon" sizes="144x144" href="https://d36cz9buwru1tt.cloudfront.net/touch-icon-ipad-144-precomposed.png">   
+  <link rel="stylesheet" href="//d348hmg1ylg9cx.cloudfront.net/css/all.css" type="text/css" />
+  <link rel="stylesheet" href="//d348hmg1ylg9cx.cloudfront.net/css/awsHome2.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="https://d348hmg1ylg9cx.cloudfront.net/css/awsGlobalNav3.css">
+  <!--[if lt IE 7]> <link rel="stylesheet" type="text/css" href="https://d348hmg1ylg9cx.cloudfront.net/css/awsGlobalNav3-ltIE7.css"> <![endif]-->
+  <!--[if lt IE 8]> <link rel="stylesheet" type="text/css" href="https://d348hmg1ylg9cx.cloudfront.net/css/awsGlobalNav3-ltIE8.css"> <![endif]-->
+  <!--[if lt IE 9]> <link rel="stylesheet" type="text/css" href="https://d348hmg1ylg9cx.cloudfront.net/css/awsGlobalNav3-ltIE9.css"> <![endif]-->
+
+
+
+
+</head>
+<body id="top">
+  <div class="wrapper">
+    <table cellpadding="0" cellspacing="0" border="0" align="center" width="950px">
+      <tr>
+        <td valign="top">
+
+        <header id="hd" class="header">
+          <div id="main-nav" class="nav-lang-en">
+            <a href="https://aws.amazon.com/" id="nav-aws-logo" class="nav-sprite" title="Amazon Web Services"><span>Amazon Web Services</span></a>
+   
+            <div id="nav-bar" class="nav-sprite">
+              <a id="nav-dd-products-solutions" class="nav-link" href="https://aws.amazon.com/products/">
+                <strong>AWS Products</strong> &amp; <strong>Solutions</strong>
+              </a>
+   
+              <form id="nav-search-form" method="get" action="https://aws.amazon.com/search">
+                <div id="nav-searchfield-outer" class="nav-sprite">
+                  <div id="nav-searchfield-inner" class="nav-sprite">
+                    <div id="nav-searchfield-width">
+                      <input id="nav-searchfield" name="searchQuery"></input>
+                    </div>
+                  </div>
+                </div>
+   
+                <span id="nav-search-in" class="nav-sprite">
+                  <span id="nav-search-in-content">Search In</span>
+                  <span class="nav-down-arrow nav-sprite"></span>
+                  <select name="searchPath" id="nav-search-dropdown"></select>
+                </span>
+   
+                <div id="nav-search-button" class="nav-sprite">
+                  <input type="image" alt="Search" id="nav-search-button-inner" title="Search" src="https://d36cz9buwru1tt.cloudfront.net/nav/transparent_pixel.gif">
+                </div>
+              </form>
+   
+              <a id="nav-dd-developers" class="nav-link" href="https://aws.amazon.com/developers/">
+                <strong>Developers</strong>
+              </a>
+   
+              <a id="nav-dd-support" class="nav-link" href="https://aws.amazon.com/support/">
+                <strong>Support</strong>
+              </a>
+            </div>
+ 
+            <div id="global-top-links">
+              <a href="https://portal.aws.amazon.com/gp/aws/developer/registration/index.html" id="gtl-sign-up">Sign Up</a>
+              <a href="https://console.aws.amazon.com/" id="gtl-dd-account-console">My Account / Console</a>
+            </div>
+          </div>
+   
+        </header>
+
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+
+&nbsp;
+
+
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td class="jive-page-title">
+                Discussion Forums
+              </td>
+              <td nowrap align="right">
+                
+<div id="jive-accountbox" class="clearfix">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td align="right" class="account-box-wrapper">
+Welcome, Guest                 <a class="jive-acc-login" href="/login.jspa;jsessionid=42F9B06BA38B6C78D8FACD5EEE619D13">Login</a>
+                 <a href="/help.jspa;jsessionid=42F9B06BA38B6C78D8FACD5EEE619D13" class="jive-acc-help" title="Forums Help">Forums Help</a> 
+         </td>
+    </tr>
+    </table>
+</div>
+
+              </td>
+          </tr>
+          <tr>
+            <td style="padding-top: 8px;" colspan="2" valign="top">
+         
+              <div id="jive-breadcrumbs">
+    <em>
+
+
+    <a href="/index.jspa;jsessionid=42F9B06BA38B6C78D8FACD5EEE619D13?categoryID=1">Discussion Forums</a>
+
+
+            <span class="bidi">
+            <span class="gt">&gt;</span>
+            <a href="/category.jspa;jsessionid=42F9B06BA38B6C78D8FACD5EEE619D13?categoryID=3">Category: Amazon Web Services</a>
+            </span>
+
+            <span class="bidi">
+            <span class="gt">&gt;</span>
+                    <a href="/forum.jspa;jsessionid=42F9B06BA38B6C78D8FACD5EEE619D13?forumID=30&start=0">Forum: Amazon Elastic Compute Cloud</a>
+            </span>
+
+        
+
+        <span class="bidi">
+            <span class="gt">&gt;</span>
+            <span class="bctxt">Announcement</span>
+        </span>
+    
+    
+    </em>
+</div>
+  
+
+              <article id="bd" class="content">
+                <div id="jive-annpage">
+
+<div class="jive-buttons">
+<table summary="Buttons" cellpadding="0" cellspacing="0" border="0">
+<tbody>
+    <tr>
+        <td class="jive-icon">
+            
+                <a href="forum.jspa?forumID=30"
+                 ><img src="https://dn1lvoe5mgzdm.cloudfront.net/images/arrow-left-16x16.gif" width="16" height="16" border="0" alt="Back to Discussion Forum"></a>
+            
+        </td>
+        <td class="jive-icon-label">
+            
+                <a href="forum.jspa?forumID=30"
+                 >Back to Discussion Forum</a>
+            
+        </td>
+
+        
+    </tr>
+</tbody>
+</table>
+</div>
+
+<br />
+
+
+
+    <div class="jive-pm-box">
+    <div class="jive-table">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <thead>
+        <tr>
+            <th class="jive-first-last">
+            	
+                Announcement: Amazon EC2 Public IP Ranges
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="2" class="jive-first-last">
+                <div class="jive-pm-msg-info">
+                <table cellpadding="3" cellspacing="1" border="0" width="100%">
+                <tr>
+                    <td class="jive-label">
+                    	
+                        Posted By:
+                    </td>
+                    <td>
+                        
+                            <a href="profile.jspa?userID=141792"
+                                >EricS@AWS</a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="jive-label">
+                        Created in:
+                    </td>
+                    <td colspan="2">
+                        
+                            Forum:
+                            <a href="forum.jspa?forumID=30">Amazon Elastic Compute Cloud</a>
+                        
+                    </td>
+                </tr>
+
+                
+
+                <tr>
+                    <td class="jive-label">
+                    	
+                        Posted on:
+                    </td>
+                    <td colspan="2">
+                        Dec 13, 2013 2:52 PM
+                    </td>
+                </tr>
+
+                
+
+                </table>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="jive-first-last">
+                <div class="jive-body">
+                Dear Amazon EC2 customer,<br><br>
+We are pleased to announce that as part of our ongoing expansion, we have added new public IP ranges.  The current Amazon EC2 public address ranges are: <br />
+<br><br>
+US East (Northern Virginia): <br />
+<br>
+<br>72.44.32.0/19 (72.44.32.0 - 72.44.63.255) <br />
+<br>67.202.0.0/18 (67.202.0.0 - 67.202.63.255) <br />
+<br>75.101.128.0/17 (75.101.128.0 - 75.101.255.255) <br />
+<br>174.129.0.0/16 (174.129.0.0 - 174.129.255.255) <br />
+<br>204.236.192.0/18 (204.236.192.0 - 204.236.255.255)  <br />
+<br>184.73.0.0/16 (184.73.0.0 - 184.73.255.255)  <br />
+<br>184.72.128.0/17 (184.72.128.0 - 184.72.255.255)<br />
+<br>184.72.64.0/18 (184.72.64.0 - 184.72.127.255) <br />
+<br>50.16.0.0/15 (50.16.0.0 - 50.17.255.255)<br />
+<br>50.19.0.0/16 (50.19.0.0 - 50.19.255.255)<br />
+<br>107.20.0.0/14 (107.20.0.0 - 107.23.255.255)<br />
+<br>23.20.0.0/14 (23.20.0.0 - 23.23.255.255)<br />
+<br>54.242.0.0/15 (54.242.0.0 - 54.243.255.255)<br />
+<br>54.234.0.0/15 (54.234.0.0 - 54.235.255.255)<br />
+<br>54.236.0.0/15 (54.236.0.0 - 54.237.255.255)<br />
+<br>54.224.0.0/15 (54.224.0.0 - 54.225.255.255)<br />
+<br>54.226.0.0/15 (54.226.0.0 - 54.227.255.255)<br />
+<br>54.208.0.0/15 (54.208.0.0 - 54.209.255.255)<br />
+<br>54.210.0.0/15 (54.210.0.0 - 54.211.255.255)<br />
+<br>54.221.0.0/16 (54.221.0.0 - 54.221.255.255)<br />
+<br>54.204.0.0/15 (54.204.0.0 - 54.205.255.255)<br />
+<br>54.196.0.0/15 (54.196.0.0 - 54.197.255.255)<br />
+<br>54.198.0.0/16 (54.198.0.0 - 54.198.255.255)<br />
+<br>54.80.0.0/13 (54.80.0.0 - 54.87.255.255)  <b><a href="https://forums.aws.amazon.com/">NEW</a></b><br />
+<p />
+<br>
+<br>
+US West (Oregon): <br />
+<br>
+<br>50.112.0.0/16 (50.112.0.0 - 50.112.255.255)<br />
+<br>54.245.0.0/16 (54.245.0.0 - 54.245.255.255)<br />
+<br>54.244.0.0/16 (54.244.0.0 - 54.244.255.255)<br />
+<br>54.214.0.0/16 (54.214.0.0 - 54.214.255.255)<br />
+<br>54.212.0.0/15 (54.212.0.0 - 54.213.255.255)<br />
+<br>54.218.0.0/16 (54.218.0.0 - 54.218.255.255)<br />
+<br>54.200.0.0/15 (54.200.0.0 - 54.201.255.255)<br />
+<br>54.202.0.0/15 (54.202.0.0 - 54.203.255.255)<br />
+<br>54.184.0.0/13 (54.184.0.0 - 54.191.255.255) <b><a href="https://forums.aws.amazon.com/">NEW</a></b><br />
+<p />
+<p />
+<br>
+<br>
+US West (Northern California): <br />
+<br>
+<br>204.236.128.0/18 (204.236.128.0 - 204.236.191.255)<br />
+<br>184.72.0.0/18 (184.72.0.0 - 184.72.63.255)<br />
+<br>50.18.0.0/16 (50.18.0.0 - 50.18.255.255)<br />
+<br>184.169.128.0/17 (184.169.128.0 - 184.169.255.255)<br />
+<br>54.241.0.0/16 (54.241.0.0 - 54.241.255.255)<br />
+<br>54.215.0.0/16 (54.215.0.0 - 54.215.255.255)<br />
+<br>54.219.0.0/16 (54.219.0.0 - 54.219.255.255)<br />
+<br>54.193.0.0/16 (54.193.0.0 - 54.193.255.255)<br />
+<br />
+<br><br>
+EU (Ireland): <br />
+<br>
+<br>79.125.0.0/17 (79.125.0.0 - 79.125.127.255) <br />
+<br>46.51.128.0/18 (46.51.128.0 - 46.51.191.255)<br />
+<br>46.51.192.0/20 (46.51.192.0 - 46.51.207.255)<br />
+<br>46.137.0.0/17 (46.137.0.0 - 46.137.127.255)<br />
+<br>46.137.128.0/18 (46.137.128.0 - 46.137.191.255)<br />
+<br>176.34.128.0/17 (176.34.128.0 - 176.34.255.255)<br />
+<br>176.34.64.0/18 (176.34.64.0 - 176.34.127.255)<br />
+<br>54.247.0.0/16 (54.247.0.0 - 54.247.255.255)<br />
+<br>54.246.0.0/16 (54.246.0.0 - 54.246.255.255)<br />
+<br>54.228.0.0/16 (54.228.0.0 - 54.228.255.255)<br />
+<br>54.216.0.0/15 (54.216.0.0 - 54.217.255.255)<br />
+<br>54.229.0.0/16 (54.229.0.0 - 54.229.255.255)<br />
+<br>54.220.0.0/16 (54.220.0.0 - 54.220.255.255)<br />
+<br>54.194.0.0/15 (54.194.0.0 - 54.195.255.255)<br />
+<br>54.72.0.0/14 (54.72.0.0 - 54.75.255.255)  <b><a href="https://forums.aws.amazon.com/">NEW</a></b><br />
+<br><br>
+<br />
+Asia Pacific (Singapore)<br />
+<br>
+<br>175.41.128.0/18 (175.41.128.0 - 175.41.191.255)<br />
+<br>122.248.192.0/18 (122.248.192.0 - 122.248.255.255)<br />
+<br>46.137.192.0/18 (46.137.192.0 - 46.137.255.255)<br />
+<br>46.51.216.0/21 (46.51.216.0 - 46.51.223.255)<br />
+<br>54.251.0.0/16 (54.251.0.0 - 54.251.255.255) <br />
+<br>54.254.0.0/16 (54.254.0.0 - 54.254.255.255) <br />
+<br>54.255.0.0/16 (54.255.0.0 - 54.255.255.255)<br />
+<br><br>
+<p />
+Asia Pacific (Sydney)<br />
+<br>
+<br>54.252.0.0/16 (54.252.0.0 - 54.252.255.255)<br />
+<br>54.253.0.0/16 (54.253.0.0 - 54.253.255.255) <br />
+<br>54.206.0.0/16 (54.206.0.0 - 54.206.255.255)<br />
+<br>54.79.0.0/16 (54.79.0.0 - 54.79.255.255)  <b><a href="https://forums.aws.amazon.com/">NEW</a></b><br />
+<br />
+<br><br>
+<p />
+Asia Pacific (Tokyo)<br />
+<br>
+<br>175.41.192.0/18 (175.41.192.0 - 175.41.255.255)<br />
+<br>46.51.224.0/19 (46.51.224.0 - 46.51.255.255)<br />
+<br>176.32.64.0/19 (176.32.64.0 - 176.32.95.255)<br />
+<br>103.4.8.0/21 (103.4.8.0 - 103.4.15.255)<br />
+<br>176.34.0.0/18 (176.34.0.0 - 176.34.63.255)<br />
+<br>54.248.0.0/15 (54.248.0.0 - 54.249.255.255)<br />
+<br>54.250.0.0/16 (54.250.0.0 - 54.250.255.255)<br />
+<br>54.238.0.0/16 (54.238.0.0 - 54.238.255.255)<br />
+<br>54.199.0.0/16 (54.199.0.0 - 54.199.255.255)<br />
+<br><br>
+South America (Sao Paulo)<br />
+<br>
+<br>177.71.128.0/17 (177.71.128.0 - 177.71.255.255)<br />
+<br>54.232.0.0/16 (54.232.0.0 - 54.232.255.255)<br />
+<br>54.233.0.0/18 (54.233.0.0 - 54.233.63.255)<br />
+<br>54.207.0.0/16 (54.207.0.0 - 54.207.255.255)<br />
+<br><br>
+GovCloud<br />
+<br>
+<br>96.127.0.0/18 (96.127.0.0 - 96.127.63.255)<br />
+<br><br>
+Sincerely,<br />
+<br><br>
+The Amazon EC2 Team
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+
+
+
+</div> 
+                <br />
+                <br />
+              </article>
+         &nbsp; 
+
+      <footer id="ft" class="footer">
+        <div style="border-top: 1px solid #ccc; margin-bottom: 12px; margin-top: 10px; padding-top: 2px;">
+          <ul class="h_bar">
+            <li class="first">
+              <a href="http://aws.typepad.com/" target="_blank">AWS Blog <img src="https://d36cz9buwru1tt.cloudfront.net/icon_offsite.gif" width="15" height="13" border="0" alt="This link will launch a new browser window or tab."></a>
+            </li>
+            <li><a href="http://phx.corporate-ir.net/phoenix.zhtml?c=176060&p=irol-InfoReq">Press Inquiries</a></li>
+            <li><a href="https://aws.amazon.com/careers/">Careers at AWS</a></li>
+            <li><a href="https://aws.amazon.com/contact-us/">Contact Us</a></li>
+            <li><a href="https://aws.amazon.com/privacy/">Privacy Policy</a></li>
+            <li><a href="https://aws.amazon.com/terms/">Terms of Use</a></li>
+          </ul>
+          <div class="grey666">&#169;2013, Amazon Web Services, Inc. or its affiliates. All rights reserved.</div>
+          <img src="https://d36cz9buwru1tt.cloudfront.net/awsmedia/logo_an_amazon_company.gif" width="160" height="21" vspace="8">
+        </div>
+      </footer>
+              
+            </td>
+          </tr>
+        </table>
+      </div>
+    </tr>
+  </table>
+
+  <script src="//d348hmg1ylg9cx.cloudfront.net/js/all_3.js" type="text/javascript"></script>
+<style>  
+    .aws-footer {
+      font-size:85%;
+      text-align:center;
+    }
+   
+    .h_bar {
+      list-style-image: none;
+      list-style-position:outside;
+      list-style-type: none;
+      margin-left: 0;
+      padding-left: 10px;
+    }
+  
+    .h_bar li{
+      border-left: 1px solid #CCCCCC;
+      padding-left: 18px;
+      padding-right: 18px;
+      display: inline;
+      list-style-type: none;
+    }
+  
+     li.first{
+      border-left: 0px;
+    }
+  </style> 
+  <script type="text/javascript" src="https://d348hmg1ylg9cx.cloudfront.net/js/jquery-1.5.2.min.js"></script>
+  <script type="text/javascript">
+    jQuery.noConflict();
+  </script>
+  <script type="text/javascript" src="https://d348hmg1ylg9cx.cloudfront.net/js/jquery.cookie.min.js"></script>
+  <script type="text/javascript" src="https://d348hmg1ylg9cx.cloudfront.net/js/jquery.jsonp-1.1.4.min.js"></script>
+  <script type="text/javascript" src="//s3.amazonaws.com/awsmedia/amznUrchin.js"></script>
+
+    </div>
+  </body>
+</html>
+

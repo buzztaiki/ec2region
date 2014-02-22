@@ -20,22 +20,10 @@ describe EC2Region::Fetcher do
       let(:fetcher) { EC2Region::Fetcher.new(open('spec/regions.html')) }
       subject(:regions) { fetcher.regions }
       its(:size) { should > 0 }
-      its(:keys) {
-        should == [
-          'US East (Northern Virginia)',
-          'US West (Oregon)',
-          'US West (Northern California)',
-          'EU (Ireland)',
-          'Asia Pacific (Singapore)',
-          'Asia Pacific (Sydney)',
-          'Asia Pacific (Tokyo)',
-          'South America (Sao Paulo)',
-          'GovCloud',
-        ]
-      }
+      its(:keys) { should be_include('Asia Pacific (Tokyo)') }
 
       it "should contain ip address" do
-        ips = fetcher.regions.values.flatten
+        ips = subject.values.flatten
         expect { ips.map { |ip| IPAddr.new(ip) } }.to_not raise_error
       end
     end

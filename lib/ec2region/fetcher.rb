@@ -5,7 +5,7 @@ require 'ec2region/regions'
 module EC2Region
   class Fetcher
     # see script of https://forums.aws.amazon.com/ann.jspa?annID=1701
-    REGION_PAGE_URL = 'https://forums.aws.amazon.com/ann.jspa?annID=1701&state=hashArgs%23'
+    REGION_PAGE_URL = 'https://forums.aws.amazon.com/ann.jspa?annID=1701&state='
 
     def initialize(thing)
       @doc = Nokogiri::HTML(thing)

@@ -1,4 +1,5 @@
 source "https://rubygems.org"
 
 gem 'nokogiri'
-gem 'rspec'
+gem 'rake', require: false
+gem 'rspec', require: false

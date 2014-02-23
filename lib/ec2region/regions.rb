@@ -1,6 +1,7 @@
 require 'ipaddr'
 
 module EC2Region
+  # The representation of regions and ips
   class Regions
     # @param [Hash{String => Array<String>}] regions_hash
     def initialize(regions_hash)

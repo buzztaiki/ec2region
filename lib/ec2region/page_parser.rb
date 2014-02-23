@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 
 module EC2Region
-  class Fetcher
+  class PageParser
     def initialize(thing)
       @doc = Nokogiri::HTML(thing)
     end
@@ -22,7 +22,7 @@ module EC2Region
       body = @doc.css('div.jive-body').first
       h = {}
       region = nil
-      Fetcher.replace_br(body, "\n").content.split("\n").each do |line|
+      self.class.replace_br(body, "\n").content.split("\n").each do |line|
         line.strip!
         next if line.empty?
 

@@ -2,4 +2,4 @@
 $LOAD_PATH.unshift File.expand_path('../lib', File.dirname(__FILE__))
 
 require 'ec2region'
-EC2Region::CLI.new.run(ARGV)
+EC2Region::CLI.new.run($0, ARGV)
